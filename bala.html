@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌟 Annapoorani Snacks - Merry Christmas! 🎁</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Merriweather:wght@400;700&family=Agbalumo&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ====================================================
+        --- CSS STYLES START HERE ---
+        ==================================================== 
+        */
+        :root {
+            --christmas-red: #a62a2a; 
+            --christmas-green: #1d7d40; 
+            --christmas-gold: #ffc93c; 
+            --bg: #f5f5f5; 
+            --text: #2c3e50;
+            --place-order-blue: #3498db; 
+            --currency-code: 'ZMW'; 
+        }
+
+        body {
+            font-family: 'Merriweather', serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg);
+            color: var(--text);
+            padding-bottom: 50px;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            text-align: center;
+        }
+
+        /* --- KEYFRAMES AND ANIMATIONS --- */
+        @keyframes fall {
+            to { transform: translateY(100vh); opacity: 0.2; }
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(52, 152, 219, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(52, 152, 219, 0); }
+        }
+
+        @keyframes fadeInSlide {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes successPop {
+            0% { transform: scale(0.5); opacity: 0; }
+            80% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); }
+        }
+
+
+        /* --- SNOWFALL ANIMATION --- */
+        .snow-container {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 999;
+        }
+        .snow {
+            position: absolute; 
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 50%; 
+            opacity: 0.7; 
+            box-shadow: 0 0 3px rgba(255, 255, 255, 0.5);
+            animation: fall linear infinite;
+        }
+
+
+        /* --- 2. WELCOME SCREEN STYLING --- */
+        #welcome-screen {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(180deg, var(--christmas-red) 0%, #7d2020 100%);
+            color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 1001; text-align: center; padding: 20px; box-sizing: border-box;
+        }
+
+        #welcome-screen h2 { 
+            font-family: 'Agbalumo', cursive;
+            font-size: 3rem; 
+            margin-bottom: 15px; 
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5); 
+            animation: fadeInSlide 1s ease-out; 
+            line-height: 1.2;
+        }
+
+        .welcome-content {
+            opacity: 0; animation: fadeInSlide 1s ease-out 0.5s forwards;
+            max-width: 400px; width: 90%; margin-left: auto; margin-right: auto;
+        }
+
+        .welcome-form {
+            width: 100%; display: flex; flex-direction: column; align-items: center;
+        }
+
+        .welcome-form input[type="text"], .welcome-form button {
+            width: 100%; padding: 12px; margin-bottom: 10px; border-radius: 8px; box-sizing: border-box; font-size: 1rem;
+            border: 2px solid var(--christmas-gold);
+        }
+
+        .welcome-form .phone-input-group { 
+            display: flex; 
+            width: 100%; 
+            margin-bottom: 10px; 
+            border: 2px solid var(--christmas-gold);
+            border-radius: 8px;
+            overflow: hidden;
+            background: white;
+        }
+        
+        .welcome-form .country-code { 
+            background-color: var(--christmas-green); 
+            color: white; 
+            font-weight: bold; 
+            padding: 12px; 
+            flex-shrink: 0; 
+            display: flex; 
+            align-items: center;
+        }
+        
+        .welcome-form .phone-number { 
+            flex-grow: 1; 
+            border: none;
+            padding: 12px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        #enter-button { 
+            animation: pulse 2s infinite ease-in-out 1s; 
+            background-color: var(--place-order-blue); color: white; font-weight: bold; cursor: pointer;
+            border: none !important;
+        }
+        #enter-button:hover { animation: none; }
+
+
+        /* --- 3. MAIN MENU STYLING --- */
+        #home-screen { opacity: 0; transition: opacity 1s ease-in-out; }
+
+        .sticky-header-wrapper { position: sticky; top: 0; z-index: 100; }
+
+        header {
+            background: var(--christmas-green); color: white; padding: 10px 0 5px 0; 
+            text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            border-bottom: 5px dashed var(--christmas-gold);
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            padding: 10px 15px 5px 15px;
+        }
+
+        .logo-container { flex-shrink: 0; }
+
+        .contact-santa-container {
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            text-align: right;
+            line-height: 1.2;
+        }
+
+        .header-contact { font-size: 0.8em; font-weight: bold; color: white; margin-bottom: 3px; }
+        .header-contact a { color: white; text-decoration: none; }
+        .header-whatsapp-group { font-size: 0.75em; color: white; margin-bottom: 3px; }
+        .header-whatsapp-group a { color: white; text-decoration: none; font-weight: bold; }
+        .santa-container { font-size: 2.5rem; line-height: 1; }
+
+        .header-title-container { flex-grow: 1; text-align: center; padding: 0 10px; }
+        header h1 { 
+            font-family: 'Agbalumo', cursive; 
+            font-size: 2.5rem; 
+            color: var(--christmas-gold); text-shadow: 2px 2px 3px var(--christmas-red);
+            margin: 0;
+        }
+
+        .logo-container img { width: 80px; height: auto; border-radius: 50%; border: 3px solid var(--christmas-gold); }
+
+        .navbar { background: var(--christmas-red); padding: 10px 0; display: flex; justify-content: center; gap: 10px; }
+        .nav-button {
+            color: white; padding: 10px 18px; font-weight: bold; letter-spacing: 0.5px;
+            border: none; background: transparent; cursor: pointer;
+        }
+        .nav-button.active { 
+            background-color: var(--christmas-gold); color: var(--christmas-red); 
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+
+        .menu-section { padding-top: 130px; margin-top: -130px; }
+        .container { max-width: 1200px; margin: 20px auto; padding: 0 15px; text-align: center; }
+        .category-title {
+            color: var(--christmas-red); border-bottom: 3px double var(--christmas-green);
+            font-size: 1.6rem; text-shadow: 1px 1px 1px rgba(0,0,0,0.1); margin-top: 20px;
+        }
+
+        .menu-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px; padding: 20px 0;
+        }
+
+        .card { 
+            border: 2px solid var(--christmas-gold); border-radius: 8px; padding: 5px; 
+            background-color: white; display: flex; flex-direction: column; justify-content: space-between; height: 100%; 
+        }
+        .card-img-container { height: 120px; overflow: contain; }
+        .card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease-in-out; }
+        .btn-order { background-color: var(--christmas-red); color: white; margin-top: 8px; width: 100%; padding: 8px 0; border:none; border-radius: 4px; cursor: pointer; }
+        .card-info { padding: 5px 0; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; align-items: center; }
+        .card-price { font-weight: bold; color: var(--christmas-green); font-size: 1.1rem; margin: 5px 0 3px 0; }
+        .card-ingredients { font-size: 0.75rem; color: #555; margin-bottom: 5px; line-height: 1.2; padding: 0 2px; flex-grow: 1; display: flex; flex-direction: column; width: 100%; text-align: center; }
+
+        /* --- 4. FLOATING CART STYLING --- */
+        #floating-cart-btn {
+            position: fixed; bottom: 20px; right: 20px;
+            background-color: var(--place-order-blue); color: white;
+            padding: 15px 25px; border-radius: 50px;
+            font-weight: bold; font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            cursor: pointer; display: none; 
+            transition: transform 0.2s; z-index: 1000; border: none;
+        }
+
+        /* --- 5. MODAL STYLING --- */
+        .modal { display: none; position: fixed; z-index: 1003; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); justify-content: center; align-items: center; }
+        .modal-content { background-color: #fefefe; padding: 20px; border: 1px solid #888; width: 80%; max-width: 300px; border-radius: 10px; text-align: left; }
+        .btn-add-to-order { background-color: var(--christmas-green); color: white; padding: 10px 20px; border-radius: 5px; border: none; cursor: pointer; }
+        .modal-actions { display: flex; justify-content: space-between; margin-top: 20px; }
+        .btn-cancel { background-color: #ccc; color: var(--text); padding: 10px 20px; border-radius: 5px; border: none; cursor: pointer; }
+
+        /* --- 7. SUMMARY SCREEN STYLING --- */
+        #summary-screen { display: none; min-height: 100vh; background-color: var(--bg); padding-top: 20px; }
+        .summary-container { max-width: 700px; margin: 20px auto; background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .summary-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .summary-table th, .summary-table td { padding: 10px; border-bottom: 1px solid #eee; text-align: left; }
+        .summary-table th { background-color: var(--christmas-green); color: white; text-transform: uppercase; font-size: 0.85rem; }
+        
+        /* New Alignment for QTY column */
+        .summary-table th:nth-child(3), .summary-table td:nth-child(3) { text-align: center; }
+
+        .summary-item-image { width: 40px; height: 40px; object-fit: cover; border-radius: 4px; margin-right: 5px; vertical-align: middle; border: 1px solid #ccc; }
+        .quantity-control { display: flex; align-items: center; justify-content: center; gap: 5px; }
+        .qty-btn { background: var(--christmas-red); color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-weight: bold; }
+        .qty-display { padding: 5px; min-width: 25px; text-align: center; font-weight: bold; }
+        .total-row { font-size: 1.4rem; font-weight: bold; color: var(--christmas-red); }
+        .summary-actions { margin-top: 25px; display: flex; justify-content: space-between; gap: 10px; }
+        .btn-confirm-order { background-color: var(--place-order-blue); color: white; padding: 15px 25px; border-radius: 8px; border: none; font-size: 1.1rem; font-weight: bold; cursor: pointer; flex-grow: 1; }
+        .btn-continue-shopping { background-color: #ccc; color: var(--text); padding: 15px 25px; border-radius: 8px; border: none; font-size: 1.1rem; font-weight: bold; cursor: pointer; }
+
+        @media (max-width: 600px) {
+            header { flex-direction: column; padding: 8px 10px; }
+            .logo-container img { width: 55px; }
+            header h1 { font-size: 1.6rem; }
+            .menu-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+            .card-ingredients { display: none; }
+            #welcome-screen h2 { font-size: 2rem; }
+            .summary-actions { flex-direction: column-reverse; }
+        }
+
+        /* --- CHOICE MODAL --- */
+        .confirm-choice-modal { text-align: center; }
+        .choice-btn { display: block; width: 100%; padding: 15px; margin-bottom: 10px; border-radius: 8px; border: none; font-size: 1.1rem; font-weight: bold; cursor: pointer; }
+        #btn-sms { background-color: var(--place-order-blue); color: white; }
+        #btn-whatsapp { background-color: #25D366; color: white; }
+
+        /* --- THANK YOU SCREEN --- */
+        #thank-you-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--bg); color: var(--text); display: none; flex-direction: column; justify-content: center; align-items: center; z-index: 1002; padding: 20px; }
+        .success-box { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); max-width: 400px; width: 90%; }
+        .home-btn { background: var(--place-order-blue); color: white; padding: 12px 25px; border-radius: 5px; text-decoration: none; display: inline-block; margin-top: 15px; }
+        footer { background-color: var(--christmas-green); color: white; padding: 20px 0; margin-top: 30px; }
+        footer a { color: var(--christmas-gold); text-decoration: none; }
+    </style>
+</head>
+<body>
+
+    <div class="snow-container"></div>
+    
+    <div id="welcome-screen">
+        <h2>🎄 Welcome to Baga Foods LTD <br> Annapoorani Snacks & Sweets 🎁</h2>
+        <div class="welcome-content">
+            <p style="font-size: 1.2rem;">Get ready for the festive season with our finest snacks!</p>
+            <form id="welcome-form" class="welcome-form">
+                <input type="text" id="customer-name" placeholder="Your Full Name" required>
+                <div class="phone-input-group">
+                    <span class="country-code">+260</span>
+                    <input type="tel" id="customer-phone" class="phone-number" placeholder="Mobile Number (e.g., 979xxxxxx)" pattern="[0-9]{9}" required>
+                </div>
+                <button type="submit" id="enter-button">Enter Festive Menu</button>
+            </form>
+        </div>
+    </div>
+
+
+    <div id="home-screen">
+        <div class="sticky-header-wrapper">
+            <header>
+                <div class="logo-container">
+                    <img src="logo.jpg" alt="Logo" onerror="this.onerror=null; this.src='https://via.placeholder.com/80x80?text=LOGO';">
+                </div>
+                <div class="header-title-container">
+                    <h1>Annapoorani Snacks & Sweets</h1>
+                    <p style="margin: 0; font-size: 0.9em;">Wishing you a Merry Christmas & Happy New Year!</p>
+                </div>
+                <div class="contact-santa-container">
+                    <div class="header-contact"><a href="tel:+260979117700">+260 979 117 700</a></div>
+                    <div class="header-whatsapp-group"><a href="https://chat.whatsapp.com/J2fY3cRMrl622VubWCkq9g" target="_blank">Join WhatsApp Group</a></div>
+                    <div class="santa-container">🎅</div>
+                </div>
+            </header>
+            <div class="navbar" id="navbar">
+                <button class="nav-button active" data-target="savory-section">Crispy Savories</button>
+                <button class="nav-button" data-target="sweets-section">Traditional Sweets</button>
+                <button class="nav-button" data-target="health-section">Health Mixes</button>
+            </div>
+        </div>
+
+        <div class="container">
+            <div id="savory-section" class="menu-section">
+                <h2 class="category-title">Crispy Savories 🥜</h2>
+                <div class="menu-grid" id="savory-grid"></div>
+            </div>
+            <div id="sweets-section" class="menu-section">
+                <h2 class="category-title">Traditional Sweets 🍯</h2>
+                <div class="menu-grid" id="sweets-grid"></div>
+            </div>
+            <div id="health-section" class="menu-section">
+                <h2 class="category-title">Health Mixes 💪</h2>
+                <div class="menu-grid" id="health-grid"></div>
+            </div>
+        </div>
+            <footer>
+    <h4>🎄 Contact & Location 🎅</h4>
+    <p>Ready to Order? Send us a text!</p>
+    <p>Order SMS/WhatsApp: <a href="tel:+260979117700">+260 979 117 700</a></p>
+    <p>Location: <strong>Plot number 8229, Chinyunyu Rd, Lusaka, Zambia</strong></p>
+    <button class="btn-location" onclick="openOfficialLocation()">📍 Get Directions</button>
+
+        </footer>
+    </div>
+
+    <div id="order-modal" class="modal">
+        <div class="modal-content">
+            <h3 id="modal-item-name">Item Name</h3>
+            <hr style="border-top: 1px solid #eee; margin: 15px 0;">
+            <p style="font-weight: bold;">Quantity:</p>
+            <input type="number" id="quantity-input" min="1" value="1" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+            <div class="modal-actions">
+                <button class="btn-cancel" onclick="closeModal('order-modal')">Cancel</button>
+                <button class="btn-add-to-order" onclick="addToCart()">Add to Order</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="confirm-choice-modal" class="modal">
+        <div class="modal-content confirm-choice-modal">
+            <h3>How would you like to send your order?</h3>
+            <button id="btn-whatsapp" class="choice-btn" onclick="sendViaWhatsApp()">🟢 Send via WhatsApp</button>
+            <button id="btn-sms" class="choice-btn" onclick="sendViaSMS()">✉️ Send via SMS Text</button>
+            <button class="btn-cancel" onclick="closeModal('confirm-choice-modal')">Cancel</button>
+        </div>
+    </div>
+
+    <button id="floating-cart-btn" onclick="showSummary()">🛒 Review & Place Order (<span id="cart-count">0</span>)</button>
+
+    <div id="summary-screen">
+        <div class="summary-container">
+            <h2 class="category-title" style="border: none;">Order Summary for <span id="summary-customer-name">Customer</span></h2>
+            <table class="summary-table">
+                <thead>
+                    <tr>
+                        <th>Item (Unit)</th>
+                        <th>Price</th>
+                        <th>Qty</th>
+                        <th>Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody id="summary-cart-items"></tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3" style="text-align: right;" class="total-row">TOTAL:</td>
+                        <td id="summary-total-cost" class="total-row">ZMW 0</td>
+                    </tr>
+                </tfoot>
+            </table>
+            <div class="summary-actions">
+                 <button class="btn-continue-shopping" onclick="hideSummary()">🔙 Continue Shopping</button>
+                <button class="btn-confirm-order" onclick="openConfirmChoiceModal()">✉️ Confirm & Send Order</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="thank-you-screen">
+        <div class="success-box">
+            <div style="font-size:4rem">🎉</div>
+            <h2>Order Generated!</h2>
+            <p>Thank you, <span id="thank-you-name">Customer</span>!</p>
+            <div style="background:#ffc93c; padding:15px; border-radius:8px; margin:20px 0; font-weight:bold;">
+                Press SEND in your messaging app to finalize your purchase.
+            </div>
+            <a href="#" onclick="location.reload()" class="home-btn">Start New Order</a>
+        </div>
+    </div>
+
+    <script>
+        const ORDER_RECEIVER_NUMBER = '+260979117700'; 
+        const CURRENCY = 'ZMW'; 
+        let customerName = "";
+        let customerFullPhone = ""; 
+        let currentSelection = null; 
+        let cart = []; 
+
+        const savoryList = [
+            { name: "Thenkulal Murukku", image: "thenkulal.jpg", price: 60, quantity_g: 250, ingredients: "Rice Flour, Urad Dal, Sesame Seeds,Oil,Salt." }, 
+            { name: "Jeera Murukku", image: "jeera.jpg", price: 60, quantity_g: 250, ingredients: "Rice Flour,Chilli Powder,Sesame Seeds,Jeera,Oil,Salt" },
+            { name: "Surul Murukku", image: "surul.jpg", price: 50, quantity_g: 150, ingredients: "Rice Flour, Roasted Channa Flour, Sesame Seeds, Coconut Milk, Oil,Salt." }, 
+            { name: "Mixture", image: "mixture.jpg", price: 60, quantity_g: 250, ingredients: "Channa Flour, Rice Flour,Chilli powder, Groundnuts, Curry Leaves, Poha, Garlic, cornflask, Oil, Asafoetida, salt." },
+            { name: "Thattai", image: "thattai.jpeg", price: 50, quantity_g: 150, ingredients: "Rice Flour, Roasted Channa Flour, Curry Leaves,Garlic, Chilli Powder, Oil, Salt." },
+            { name: "Potato Chips", image: "potato.jpg", price: 60, quantity_g: 125, ingredients: "Potato, Chilli Powder, Oil, Salt." },
+            { name: "Kaara Boondhi", image: "kaara.jpg", price: 60, quantity_g: 250, ingredients: "Channa Flour, Rice Flour,Chilli powder, Groundnuts, Curry Leaves, Garlic, Oil, Asafoetida, salt." },
+            { name: "Om Podi", image: "om.jpg", price: 60, quantity_g: 250, ingredients: "Channa Flour, Rice Flour, Curry Leaves, Ajvain, Oil, salt." }
+        ];
+
+        const sweetsList = [
+            { name: "Boondhi Laddu", image: "laddu.jpg", price: 75, quantity_g: 250, ingredients: "Channa Flour, Sugar, Ghee, Cardamom, Watermelon Seeds." },
+            { name: "Aadhirasam", image: "aadhirasam.jpg", price: 75, quantity_pcs: 6, ingredients: "Rice, Jaggery, Cardamom, Dry Ginger, Sesame Seeds, Oil." }, 
+            { name: "Wheat Alwa", image: "alwa.jpg", price: 75, quantity_g: 250, ingredients: "Wheat, Sugar, Ghee, Cashew Nuts, Cardmom." },             
+            { name: "Achu Murkku", image: "achu_murukku.jpg", price: 50, quantity_pcs: 10, ingredients: "Rice Flour, Sesame Seeds, Sugar, Oil." }, 
+            { name: "Mundri Kothu", image: "mundri_kothu.jpg", price: 75, quantity_g: 250, ingredients: "Green Gram, Jaggery, Coconut, Cardamom, Oil, Rice Flour." }, 
+            { name: "Mysore Pak", image: "mysore.jpeg", price: 75, quantity_g: 250, ingredients: "Channa Flour, Sugar, Ghee, Oil." },
+            { name: "Badhusa", image: "badhu.jpg", price: 75, quantity_g: 250, ingredients: "Maida, Sugar, Ghee, Daldha, Coconut." } 
+        ];
+
+        const healthList = [
+            { name: "Protein Mix", image: "pmix.jpeg", price: 175, quantity_g: 250, ingredients: "6 types of Nuts, 5 type of Seeds, 3 types of Dry Fruits, Oats, Red Poha." }, 
+            { name: "ABC Malt", image: "abc.jpg", price: 150, quantity_g: 250, ingredients: "Apple, Beetroot, Carrot, Brown Sugar, 3 types of Nuts, Dates." },
+            { name: "Health Mix", image: "hmix.jpg", price: 125, quantity_g: 250, ingredients: "25+ Sprouted Grains, Pulses, Millets, Nuts." },
+            { name: "Weight-Loss Porridge Mix", image: "karu.jpg", price: 150, quantity_g: 250, ingredients: "Karuppu Kouni Rice, Horse Gram, Moong Dal, Barley Rice, Pepper, Cumin, Garlic." }
+        ];
+
+        (function createSnowfall() {
+            const container = document.querySelector('.snow-container');
+            for (let i = 0; i < 100; i++) {
+                const snow = document.createElement('div');
+                snow.classList.add('snow');
+                snow.style.width = Math.random() * 4 + 2 + 'px';
+                snow.style.height = snow.style.width;
+                snow.style.left = Math.random() * 100 + 'vw';
+                snow.style.animationDuration = Math.random() * 10 + 10 + 's';
+                snow.style.animationDelay = Math.random() * 5 + 's';
+                container.appendChild(snow);
+            }
+        })();
+
+        document.getElementById('welcome-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            customerName = document.getElementById('customer-name').value.trim();
+            const phone = document.getElementById('customer-phone').value.trim();
+            if (customerName && phone.length >= 9) {
+                customerFullPhone = '+260' + phone; 
+                document.getElementById('welcome-screen').style.opacity = '0';
+                setTimeout(() => {
+                    document.getElementById('welcome-screen').style.display = 'none';
+                    document.getElementById('home-screen').style.opacity = '1';
+                    document.getElementById('summary-customer-name').innerText = customerName; 
+                }, 1000);
+            }
+        });
+
+        function renderCategory(items, elementId) {
+            const grid = document.getElementById(elementId);
+            items.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.onclick = () => openModal(item);
+                const unit = item.quantity_g ? `${item.quantity_g}g` : `${item.quantity_pcs} Pcs`;
+                card.innerHTML = `
+                    <div class="card-img-container"><img src="${item.image}" onerror="this.src='https://via.placeholder.com/150';"></div>
+                    <div class="card-info">
+                        <div>${item.name}</div>
+                        <div class="card-price">${CURRENCY} ${item.price} / ${unit}</div>
+                        <div class="card-ingredients"><strong>Ingredients:</strong><span>${item.ingredients}</span></div>
+                        <button class="btn-order">Order Now</button>
+                    </div>`;
+                grid.appendChild(card);
+            });
+        }
+
+        function openModal(item) {
+            currentSelection = item;
+            document.getElementById('modal-item-name').innerText = item.name;
+            document.getElementById('quantity-input').value = 1;
+            document.getElementById('order-modal').style.display = 'flex';
+        }
+
+        function closeModal(id) { document.getElementById(id).style.display = 'none'; }
+
+        function addToCart() {
+            const qty = parseInt(document.getElementById('quantity-input').value);
+            const unit = currentSelection.quantity_g ? `${currentSelection.quantity_g}g` : `${currentSelection.quantity_pcs} Pcs`;
+            const exists = cart.find(i => i.name === currentSelection.name);
+            if(exists) exists.quantity += qty;
+            else cart.push({...currentSelection, quantity: qty, weight: unit});
+            closeModal('order-modal');
+            updateCartDisplay();
+        }
+
+        function updateCartDisplay() {
+            const count = cart.reduce((acc, i) => acc + i.quantity, 0);
+            document.getElementById('cart-count').innerText = cart.length;
+            document.getElementById('floating-cart-btn').style.display = cart.length > 0 ? 'block' : 'none';
+        }
+
+        function renderSummary() {
+            const tbody = document.getElementById('summary-cart-items');
+            tbody.innerHTML = '';
+            let total = 0;
+            cart.forEach((item, idx) => {
+                const sub = item.price * item.quantity;
+                total += sub;
+                tbody.innerHTML += `
+                    <tr>
+                        <td class="item-name"><img src="${item.image}" class="summary-item-image" onerror="this.src='https://via.placeholder.com/40';"> ${item.name}</td>
+                        <td>${CURRENCY} ${item.price}</td>
+                        <td>
+                            <div class="quantity-control">
+                                <button class="qty-btn" onclick="updateQty(${idx},-1)">-</button>
+                                <span class="qty-display">${item.quantity}</span>
+                                <button class="qty-btn" onclick="updateQty(${idx},1)">+</button>
+                            </div>
+                        </td>
+                        <td>${CURRENCY} ${sub}</td>
+                    </tr>`;
+            });
+            document.getElementById('summary-total-cost').innerText = `${CURRENCY} ${total}`;
+        }
+
+        function updateQty(idx, delta) {
+            cart[idx].quantity += delta;
+            if(cart[idx].quantity <= 0) cart.splice(idx, 1);
+            renderSummary();
+            updateCartDisplay();
+        }
+
+        function showSummary() {
+            document.getElementById('home-screen').style.display = 'none';
+            document.getElementById('summary-screen').style.display = 'block';
+            renderSummary();
+        }
+
+        function hideSummary() {
+            document.getElementById('summary-screen').style.display = 'none';
+            document.getElementById('home-screen').style.display = 'block';
+        }
+
+        function openConfirmChoiceModal() { document.getElementById('confirm-choice-modal').style.display = 'flex'; }
+
+        function generateMsg() {
+            let msg = `*NEW ORDER - ${customerName}*\n\n`;
+            let total = 0;
+            cart.forEach(i => {
+                const sub = i.price * i.quantity;
+                total += sub;
+                msg += `- ${i.name} (${i.weight}) x${i.quantity} = ${CURRENCY}${sub}\n`;
+            });
+            msg += `\n*TOTAL: ${CURRENCY}${total}*\nPhone: ${customerFullPhone}`;
+            return encodeURIComponent(msg);
+        }
+
+	function openOfficialLocation() {
+    // This encodes the address so the browser understands the spaces and symbols
+    const address = "Plot number 8229, Chinyunyu Rd, Lusaka, Zambia";
+    const googleMapsUrl = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(address);
+    
+    // Opens the map in a new browser tab or the Google Maps App
+    window.open(googleMapsUrl, '_blank');
+}
+
+        function sendViaWhatsApp() {
+            window.open(`https://wa.me/${ORDER_RECEIVER_NUMBER.replace('+','')}/?text=${generateMsg()}`, '_blank');
+            finishOrder();
+        }
+
+        function sendViaSMS() {
+            window.location.href = `sms:${ORDER_RECEIVER_NUMBER}?body=${generateMsg()}`;
+            finishOrder();
+        }
+
+        function finishOrder() {
+            document.getElementById('thank-you-name').innerText = customerName;
+            document.getElementById('summary-screen').style.display = 'none';
+            document.getElementById('confirm-choice-modal').style.display = 'none';
+            document.getElementById('thank-you-screen').style.display = 'flex';
+        }
+
+        document.querySelectorAll('.nav-button').forEach(btn => {
+            btn.onclick = () => {
+                document.querySelector('.nav-button.active').classList.remove('active');
+                btn.classList.add('active');
+                document.getElementById(btn.dataset.target).scrollIntoView({behavior:'smooth'});
+            };
+        });
+
+        renderCategory(savoryList, 'savory-grid');
+        renderCategory(sweetsList, 'sweets-grid');
+        renderCategory(healthList, 'health-grid');
+    </script>
+</body>
+</html>
