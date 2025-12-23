@@ -616,7 +616,7 @@
                     <span class="country-code">+260</span>
                     <input type="tel" id="customer-phone" class="phone-number" placeholder="Mobile Number (e.g., 979xxxxxx)" pattern="[0-9]{9}" required>
                 </div>
-                <button type="submit" id="enter-button">Enter Festive Menu</button>
+                <button type="button" id="enter-button">Enter Festive Menu</button>
             </form>
         </div>
     </div>
@@ -821,11 +821,20 @@
                 }, 1000);
             }
         });
-	document.getElementById('enter-button').addEventListener('click', () => {
+	document.getElementById('enter-button').addEventListener('click', function () {
     const bell = document.getElementById('bellSound');
-    bell.play().catch(err => console.log('Audio play prevented:', err));
-});
 
+    bell.currentTime = 0;
+    bell.volume = 0.3;
+
+    bell.play().then(() => {
+        // AFTER sound plays, submit form manually
+        document.getElementById('welcome-form').requestSubmit();
+    }).catch(err => {
+        console.log("Audio blocked:", err);
+        document.getElementById('welcome-form').requestSubmit();
+    });
+});
         function renderCategory(items, elementId) {
             const grid = document.getElementById(elementId);
             items.forEach(item => {
