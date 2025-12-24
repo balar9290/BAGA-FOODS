@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🌟 Annapoorani Snacks - Merry Christmas! 🎁</title>
+    <title>🌟 Annapoorani Snacks - Happy New Year 2026! 🎁</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Merriweather:wght@400;700&family=Agbalumo&display=swap" rel="stylesheet">
   <title>Baga Foods Ltd - Quality Snacks and Sweets</title>
@@ -12,318 +12,320 @@
 
     
     <style>
-        /* ====================================================
-        --- CSS STYLES START HERE ---
-        ==================================================== 
-        */
-        :root {
-            --christmas-red: #a62a2a; 
-            --christmas-green: #1d7d40; 
-            --christmas-gold: #ffc93c; 
-            --bg: #f5f5f5; 
-            --text: #2c3e50;
-            --place-order-blue: #3498db; 
-            --currency-code: 'ZMW'; 
-        }
-
-        body {
-            font-family: 'Merriweather', serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg);
-            color: var(--text);
-            padding-bottom: 50px;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-            text-align: center;
-        }
-
-        /* --- KEYFRAMES AND ANIMATIONS --- */
-        @keyframes fall {
-            to { transform: translateY(100vh); opacity: 0.2; }
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(52, 152, 219, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(52, 152, 219, 0); }
-        }
-
-        @keyframes fadeInSlide {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes successPop {
-            0% { transform: scale(0.5); opacity: 0; }
-            80% { transform: scale(1.1); opacity: 1; }
-            100% { transform: scale(1); }
-        }
-
-
-        /* --- SNOWFALL ANIMATION --- */
-        .snow-container {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 999;
-        }
-        .snow {
-            position: absolute; 
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 50%; 
-            opacity: 0.7; 
-            box-shadow: 0 0 3px rgba(255, 255, 255, 0.5);
-            animation: fall linear infinite;
-        }
-
-
-        /* --- 2. WELCOME SCREEN STYLING --- */
-        #welcome-screen {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(180deg, var(--christmas-red) 0%, #7d2020 100%);
-            color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 1001; text-align: center; padding: 20px; box-sizing: border-box;
-        }
-
-        #welcome-screen h2 { 
-            font-family: 'Agbalumo', cursive;
-            font-size: 3rem; 
-            margin-bottom: 15px; 
-            text-shadow: 3px 3px 6px rgba(0,0,0,0.5); 
-            animation: fadeInSlide 1s ease-out; 
-            line-height: 1.2;
-        }
-
-        .welcome-content {
-            opacity: 0; animation: fadeInSlide 1s ease-out 0.5s forwards;
-            max-width: 400px; width: 90%; margin-left: auto; margin-right: auto;
-        }
-
-        .welcome-form {
-            width: 100%; display: flex; flex-direction: column; align-items: center;
-        }
-
-        .welcome-form input[type="text"], .welcome-form button {
-            width: 100%; padding: 12px; margin-bottom: 10px; border-radius: 8px; box-sizing: border-box; font-size: 1rem;
-            border: 2px solid var(--christmas-gold);
-        }
-
-        .welcome-form .phone-input-group { 
-            display: flex; 
-            width: 100%; 
-            margin-bottom: 10px; 
-            border: 2px solid var(--christmas-gold);
-            border-radius: 8px;
-            overflow: hidden;
-            background: white;
-        }
-        
-        .welcome-form .country-code { 
-            background-color: var(--christmas-green); 
-            color: white; 
-            font-weight: bold; 
-            padding: 12px; 
-            flex-shrink: 0; 
-            display: flex; 
-            align-items: center;
-        }
-        
-        .welcome-form .phone-number { 
-            flex-grow: 1; 
-            border: none;
-            padding: 12px;
-            font-size: 1rem;
-            outline: none;
-        }
-
-        #enter-button { 
-            animation: pulse 2s infinite ease-in-out 1s; 
-            background-color: var(--place-order-blue); color: white; font-weight: bold; cursor: pointer;
-            border: none !important;
-        }
-        #enter-button:hover { animation: none; }
-
-
-        /* --- 3. MAIN MENU STYLING --- */
-        #home-screen { opacity: 0; transition: opacity 1s ease-in-out; }
-
-        .sticky-header-wrapper { position: sticky; top: 0; z-index: 100; }
-
-        header {
-            background: var(--christmas-green); color: white; padding: 10px 0 5px 0; 
-            text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            border-bottom: 5px dashed var(--christmas-gold);
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center;
-            padding: 10px 15px 5px 15px;
-        }
-
-        .logo-container { flex-shrink: 0; }
-
-        .contact-santa-container {
-            flex-shrink: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            text-align: right;
-            line-height: 1.2;
-        }
-
-        .header-contact { font-size: 0.8em; font-weight: bold; color: white; margin-bottom: 3px; }
-        .header-contact a { color: white; text-decoration: none; }
-        .header-whatsapp-group { font-size: 0.75em; color: white; margin-bottom: 3px; }
-        .header-whatsapp-group a { color: white; text-decoration: none; font-weight: bold; }
-        .santa-container { font-size: 2.5rem; line-height: 1; }
-
-        .header-title-container { flex-grow: 1; text-align: center; padding: 0 10px; }
-        header h1 { 
-            font-family: 'Agbalumo', cursive; 
-            font-size: 2.5rem; 
-            color: var(--christmas-gold); text-shadow: 2px 2px 3px var(--christmas-red);
-            margin: 0;
-        }
-
-        .logo-container img { width: 80px; height: auto; border-radius: 50%; border: 3px solid var(--christmas-gold); }
-
-        .navbar { background: var(--christmas-red); padding: 10px 0; display: flex; justify-content: center; gap: 10px; }
-        .nav-button {
-            color: white; padding: 10px 18px; font-weight: bold; letter-spacing: 0.5px;
-            border: none; background: transparent; cursor: pointer;
-        }
-        .nav-button.active { 
-            background-color: var(--christmas-gold); color: var(--christmas-red); 
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
-        }
-
-        .menu-section { padding-top: 130px; margin-top: -130px; }
-        .container { max-width: 1200px; margin: 20px auto; padding: 0 15px; text-align: center; }
-        .category-title {
-            color: var(--christmas-red); border-bottom: 3px double var(--christmas-green);
-            font-size: 1.6rem; text-shadow: 1px 1px 1px rgba(0,0,0,0.1); margin-top: 20px;
-        }
-
-        .menu-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px; padding: 20px 0;
-        }
-
-        .card { 
-            border: 2px solid var(--christmas-gold); border-radius: 8px; padding: 5px; 
-            background-color: white; display: flex; flex-direction: column; justify-content: space-between; height: 100%; 
-        }
-        .card-img-container { height: 120px; overflow: contain; }
-        .card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease-in-out; }
-        .btn-order { background-color: var(--christmas-red); color: white; margin-top: 8px; width: 100%; padding: 8px 0; border:none; border-radius: 4px; cursor: pointer; }
-        .card-info { padding: 5px 0; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; align-items: center; }
-        .card-price { font-weight: bold; color: var(--christmas-green); font-size: 1.1rem; margin: 5px 0 3px 0; }
-        .card-ingredients { font-size: 0.75rem; color: #555; margin-bottom: 5px; line-height: 1.2; padding: 0 2px; flex-grow: 1; display: flex; flex-direction: column; width: 100%; text-align: center; }
-
-	/* --- Christmas Theme for Order Summary --- */
-
-/* Color Variables */
+	
+	/* ====================================================
+--- CSS STYLES START HERE (PREMIUM GALA EDITION) ---
+*/
 :root {
-    --christmas-red: #D32F2F;
-    --christmas-green: #388E3C;
-    --christmas-gold: #FFD700;
-    --christmas-bg: #FFF8E1;
+--christmas-red: #020617; /* Now Midnight */
+--christmas-green: #0f172a; /* Now Deep Space */
+--christmas-gold: #fbbf24; /* Premium Gala Gold */
+--bg: #020617;
+--text: #f8fafc;
+--place-order-blue: #3498db;
+--currency-code: 'ZMW';
+--metallic-gold: linear-gradient(135deg, #bf953f 0%, #fcf6ba 45%, #b38728 70%, #aa771c 100%);
 }
 
-/* Overlay background */
+body {
+font-family: 'Merriweather', serif;
+margin: 0;
+padding: 0;
+background-color: var(--bg);
+color: var(--text);
+padding-bottom: 50px;
+overflow-x: hidden;
+scroll-behavior: smooth;
+text-align: center;
+}
+::selection {
+    background: #fbbf24; /* gold */
+    color: #000;         /* black text */
+}
+
+::-moz-selection {
+    background: #fbbf24;
+    color: #000;
+}
+
+/* --- KEYFRAMES AND ANIMATIONS --- */    
+@keyframes fall {    
+    to { transform: translateY(100vh); opacity: 0.2; }    
+}    
+
+@keyframes pulse {    
+    0% { box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.7); }    
+    70% { box-shadow: 0 0 0 10px rgba(251, 191, 36, 0); }    
+    100% { box-shadow: 0 0 0 0 rgba(251, 191, 36, 0); }    
+}    
+
+/* Premium Shine Effect */
+@keyframes shine {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+@keyframes fadeInSlide {    
+    from { opacity: 0; transform: translateY(20px); }    
+    to { opacity: 1; transform: translateY(0); }    
+}    
+
+@keyframes successPop {    
+    0% { transform: scale(0.5); opacity: 0; }    
+    80% { transform: scale(1.1); opacity: 1; }    
+    100% { transform: scale(1); }    
+}    
+
+
+/* --- SNOWFALL ANIMATION (GOLDEN GLITTER) --- */    
+.snow-container {    
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 999;    
+}    
+.snow {    
+    position: absolute;     
+    background: var(--christmas-gold);    
+    border-radius: 50%;     
+    opacity: 0.7;     
+    box-shadow: 0 0 5px var(--christmas-gold);    
+    animation: fall linear infinite;    
+}    
+
+
+/* --- 2. WELCOME SCREEN STYLING --- */    
+#welcome-screen {    
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;    
+    background: linear-gradient(180deg, #0f172a 0%, #020617 100%);    
+    color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 1001; text-align: center; padding: 20px; box-sizing: border-box;    
+}    
+
+#welcome-screen h2 {     
+    font-family: 'Agbalumo', cursive;    
+    font-size: 3rem;     
+    background: var(--metallic-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 15px;     
+    animation: fadeInSlide 1s ease-out;     
+    line-height: 1.2;    
+}    
+
+.welcome-content {    
+    opacity: 0; animation: fadeInSlide 1s ease-out 0.5s forwards;    
+    max-width: 400px; width: 90%; margin-left: auto; margin-right: auto;    
+}    
+
+.welcome-form {    
+    width: 100%; display: flex; flex-direction: column; align-items: center;    
+}    
+
+.welcome-form input[type="text"], .welcome-form button {    
+    width: 100%; padding: 12px; margin-bottom: 10px; border-radius: 8px; box-sizing: border-box; font-size: 1rem;    
+    border: 2px solid var(--christmas-gold);    
+}    
+
+.welcome-form .phone-input-group {     
+    display: flex;     
+    width: 100%;     
+    margin-bottom: 10px;     
+    border: 2px solid var(--christmas-gold);    
+    border-radius: 8px;    
+    overflow: hidden;    
+    background: white;    
+}    
+    
+.welcome-form .country-code {     
+    background-color: var(--christmas-green);     
+    color: var(--christmas-gold);     
+    font-weight: bold;     
+    padding: 12px;     
+    flex-shrink: 0;     
+    display: flex;     
+    align-items: center;    
+}    
+    
+.welcome-form .phone-number {     
+    flex-grow: 1;     
+    border: none;    
+    padding: 12px;    
+    font-size: 1rem;    
+    outline: none;    
+}    
+
+#enter-button {     
+    animation: pulse 2s infinite ease-in-out 1s;     
+    background: var(--metallic-gold) !important; color: black !important; font-weight: bold; cursor: pointer;    
+    border: none !important;    
+}    
+#enter-button:hover { animation: none; }    
+
+
+/* --- 3. MAIN MENU STYLING --- */    
+#home-screen { opacity: 0; transition: opacity 1s ease-in-out; }    
+
+.sticky-header-wrapper { position: sticky; top: 0; z-index: 100; }    
+
+header {    
+    background: var(--christmas-green); color: white; padding: 10px 0 5px 0;     
+    text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.5);    
+    border-bottom: 5px dashed var(--christmas-gold);    
+    display: flex;     
+    justify-content: space-between;     
+    align-items: center;    
+    padding: 10px 15px 5px 15px;    
+}    
+
+.logo-container { flex-shrink: 0; }    
+
+.contact-santa-container {    
+    flex-shrink: 0;    
+    display: flex;    
+    flex-direction: column;    
+    align-items: flex-end;    
+    text-align: right;    
+    line-height: 1.2;    
+}    
+
+.header-contact { font-size: 0.8em; font-weight: bold; color: var(--christmas-gold); margin-bottom: 3px; }    
+.header-contact a { color: white; text-decoration: none; }    
+.header-whatsapp-group { font-size: 0.75em; color: white; margin-bottom: 3px; }    
+.header-whatsapp-group a { color: var(--christmas-gold); text-decoration: none; font-weight: bold; }    
+.santa-container { font-size: 2.5rem; line-height: 1; }    
+
+.header-title-container { flex-grow: 1; text-align: center; padding: 0 10px; }    
+header h1 {     
+    font-family: 'Agbalumo', cursive;     
+    font-size: 2.5rem;     
+    background: var(--metallic-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;    
+}    
+
+.logo-container img { width: 80px; height: auto; border-radius: 50%; border: 3px solid var(--christmas-gold); }    
+
+.navbar { background: var(--christmas-red); padding: 10px 0; display: flex; justify-content: center; gap: 10px; }    
+.nav-button {    
+    color: black; padding: 10px 18px; font-weight: bold; letter-spacing: 0.5px;    
+    border: none; background:var(--metallic-gold); cursor: pointer;    
+}    
+.nav-button.active {     
+    background-color: var(--christmas-gold); color:black;     
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);    
+}    
+
+.menu-section { padding-top: 130px; margin-top: -130px; }    
+.container { max-width: 1200px; margin: 20px auto; padding: 0 15px; text-align: center; }    
+.category-title {    
+    color: var(--christmas-gold); border-bottom: 3px double var(--christmas-gold);    
+    font-size: 1.6rem; text-shadow: 1px 1px 1px rgba(0,0,0,0.5); margin-top: 20px;    
+}    
+
+.menu-grid {    
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));    
+    gap: 20px; padding: 20px 0;    
+}    
+
+.card {     
+    border: 2px solid var(--christmas-gold); border-radius: 8px; padding: 5px;     
+    background-color: #0f172a; display: flex; flex-direction: column; justify-content: space-between; height: 100%;     
+}    
+.card-img-container { height: 120px; overflow: contain; }    
+.card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease-in-out; }    
+
+.btn-order { 
+    background: var(--metallic-gold); color: black; margin-top: 8px; width: 100%; padding: 8px 0; border:none; border-radius: 4px; cursor: pointer; font-weight: bold;
+    position: relative; overflow: hidden;
+}    
+/* Premium light shine on buttons */
+.btn-order::after {
+    content: ''; position: absolute; top: -50%; left: -100%; width: 200%; height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.4), transparent);
+    animation: shine 3.5s infinite;
+}
+
+.card-info { padding: 5px 0; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; align-items: center; }    
+.card-price { font-weight: bold; color: var(--christmas-gold); font-size: 1.1rem; margin: 5px 0 3px 0; }    
+.card-ingredients { font-size: 0.75rem; color: #cbd5e1; margin-bottom: 5px; line-height: 1.2; padding: 0 2px; flex-grow: 1; display: flex; flex-direction: column; width: 100%; text-align: center; }
+
+/* --- Gala Theme for Order Summary --- */
+
 #summary-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, #ffe6e6, #ffffff);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-    overflow: hidden;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: linear-gradient(to bottom, #020617, #000);
+display: flex;
+align-items: center;
+justify-content: center;
+z-index: 1000;
+overflow: hidden;
 }
 
-/* Container styling */
 .summary-container {
-    background: linear-gradient(135deg, #fff8e1, #ffebee);
-    border-radius: 20px;
-    padding: 30px;
-    width: 90%;
-    max-width: 500px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    z-index: 1; /* Make sure container is above snow */
+background: #0f172a;
+border: 1px solid var(--christmas-gold);
+border-radius: 20px;
+padding: 30px;
+width: 90%;
+max-width: 500px;
+box-shadow: 0 15px 35px rgba(0,0,0,0.8);
+text-align: center;
+position: relative;
+overflow: hidden;
+z-index: 1;
 }
 
-/* Header styling */
 .category-title {
-    color: var(--christmas-red);
-    font-size: 2rem;
-    margin-bottom: 15px;
-    font-weight: bold;
-    text-shadow: 1px 1px 2px var(--christmas-green);
+background:var(--metallic-gold);
+color: var(--christmas-red);
+font-size: 2rem;
+margin-bottom: 15px;
+font-weight: bold;
 }
 
-.category-title::before,
-.category-title::after {
-    content: "🎄";
-    margin: 0 6px;
-}
-
-/* Customer name */
 #summary-customer-name {
-    color: var(--christmas-green);
-    font-weight: bold;
+color: var(--metallic-gold);
+font-weight: bold;
 }
 
-/* Table styling */
 .summary-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
+width: 100%;
+border-collapse: collapse;
+margin-bottom: 20px;
 }
 
 #summary-cart-items tr {
-    border-bottom: 1px dashed var(--christmas-red);
-    transition: transform 0.3s, background 0.3s;
-}
-
-#summary-cart-items tr:hover {
-    transform: scale(1.02);
-    background-color: rgba(255, 235, 238, 0.3);
+border-bottom: 1px dashed var(--christmas-gold);
 }
 
 #summary-cart-items td {
-    padding: 12px;
-    font-size: 1rem;
-    color: #333;
+padding: 12px;
+font-size: 1rem;
+color: black;
 }
 
-/* Total section */
 .total-row-container {
-    margin-top: 15px;
-    padding-top: 10px;
-    border-top: 2px solid var(--christmas-red);
-    color: var(--christmas-red);
-    font-size: 1.3rem;
-    font-weight: bold;
+margin-top: 15px;
+padding-top: 10px;
+border-top: 2px solid var(--christmas-gold);
+color: #fbbf24;
+font-size: 1.3rem;
+font-weight: bold;
 }
 
-/* Buttons */
 .summary-actions button {
-    background: linear-gradient(45deg, var(--christmas-red), var(--christmas-gold));
-    color: white;
-    border: none;
-    padding: 14px 20px;
-    border-radius: 50px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    width: 100%;
-    margin-bottom: 10px;
-    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.5);
+background: var(--christmas-gold);
+color: black;
+border: none;
+padding: 14px 20px;
+border-radius: 50px;
+font-size: 1rem;
+font-weight: bold;
+cursor: pointer;
+width: 100%;
+margin-bottom: 10px;
 }
 
 .summary-actions button:hover {
@@ -366,19 +368,20 @@
 @keyframes float {
     0% { transform: translateX(-50%) translateY(0); }
     100% { transform: translateX(-50%) translateY(-10px); }
-}	
-        /* --- 4. FLOATING CART STYLING --- */
-        #floating-cart-btn {
-            position: fixed; bottom: 20px; right: 20px;
-            background-color: var(--place-order-blue); color: white;
-            padding: 15px 25px; border-radius: 50px;
-            font-weight: bold; font-size: 1.1rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            cursor: pointer; display: none; 
-            transition: transform 0.2s; z-index: 1000; border: none;
-        }
+}
 
-	/* Mobile-First Summary Styling */
+/* --- 4. FLOATING CART STYLING --- */
+#floating-cart-btn {
+position: fixed; bottom: 20px; right: 20px;
+background: var(--metallic-gold); color: black;
+padding: 15px 25px; border-radius: 50px;
+font-weight: bold; font-size: 1.1rem;
+box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+cursor: pointer; display: none;
+transition: transform 0.2s; z-index: 1000; border: none;
+}
+
+/* Mobile-First Summary Styling Restored */
 .summary-container {
     max-width: 95%; /* Fits better on narrow screens */
     margin: 10px auto;
@@ -438,49 +441,117 @@
     border: 1px dashed var(--christmas-red);
 }
 
-        /* --- 5. MODAL STYLING --- */
-        .modal { display: none; position: fixed; z-index: 1003; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); justify-content: center; align-items: center; }
-        .modal-content { background-color: #fefefe; padding: 20px; border: 1px solid #888; width: 80%; max-width: 300px; border-radius: 10px; text-align: left; }
-        .btn-add-to-order { background-color: var(--christmas-green); color: white; padding: 10px 20px; border-radius: 5px; border: none; cursor: pointer; }
-        .modal-actions { display: flex; justify-content: space-between; margin-top: 20px; }
-        .btn-cancel { background-color: #ccc; color: var(--text); padding: 10px 20px; border-radius: 5px; border: none; cursor: pointer; }
+/* --- 5. MODAL STYLING (PREMIUM GOLD FIX) --- */
+.modal { 
+    display: none; 
+    position: fixed; 
+    z-index: 1003; 
+    left: 0; top: 0; 
+    width: 100%; height: 100%; 
+    background-color: rgba(0,0,0,0.8); 
+    justify-content: center; 
+    align-items: center; 
+    backdrop-filter: blur(5px);
+}
 
-	/* Professional Final Checkout Styling */
-#payment-modal .modal-content {
-    border: 5px solid var(--christmas-red);
-    background: #fffcfc;
-    border-radius: 20px;
-    padding: 0;
-    overflow: hidden;
-    max-width: 350px;
-    margin: auto;
+.modal-content { 
+    background: linear-gradient(180deg, #0f172a 0%, #020617 100%); 
+    padding: 25px; 
+    border: 2px solid #fbbf24; 
+    width: 85%; 
+    max-width: 320px; 
+    border-radius: 15px; 
+    text-align: left; 
+    color: white;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+}
+
+/* Fixes the text box alignment and padding */
+#quantity-input {
+    width: 100%;
+    padding: 12px;
+    margin: 15px 0;
+    border-radius: 8px;
+    border: 2px solid #fbbf24;
+    background: white;
+    color: #000;
+    box-sizing: border-box; /* THIS fixes edge alignment */
+    display: block;
+}
+.modal-content {
     text-align: center;
+}
+.modal-content p,
+.modal-content label {
+    text-align: left;
+}
+
+.modal-actions { 
+    display: flex; 
+    justify-content: space-between; 
+    gap: 12px;
+    margin-top: 10px; 
+}
+
+/* Both buttons now in Metallic Gold */
+.btn-add-to-order, .btn-cancel { 
+    flex: 1;
+    padding: 12px; 
+    border-radius: 8px; 
+    border: none; 
+    cursor: pointer; 
+    font-weight: 900;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    transition: transform 0.2s;
+    background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 45%, #b38728 70%, #aa771c 100%);
+    color: #000;
+}
+
+.btn-add-to-order:active, .btn-cancel:active {
+    transform: scale(0.95);
+}
+
+/* Styling the "Quantity:" label */
+.modal-content label {
+    font-weight: bold;
+    color: #fbbf24;
+    display: block;
+    margin-bottom: 5px;
+}
+
+
+
+#payment-modal .modal-content {
+border: 5px solid var(--metallic-gold);
+background: #020617;
+border-radius: 20px;
+padding: 0;
+overflow: hidden;
+max-width: 350px;
+margin: auto;
+text-align: center;
 }
 
 .payment-header {
-    background: var(--christmas-green);
-    color: var(--christmas-gold);
-    padding: 15px;
-    font-family: 'Agbalumo', cursive;
-    font-size: 1.5rem;
+background: var(--christmas-red);
+color: var(--christmas-gold);
+padding: 15px;
+font-family: 'Agbalumo', cursive;
+font-size: 1.5rem;
 }
 
 .festive-pay-btn {
-    width: 90%;
-    padding: 16px;
-    margin: 10px auto;
-    border: none;
-    border-radius: 12px;
-    background: var(--christmas-red);
-    color: white;
-    font-weight: bold;
-    font-size: 1.1rem;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(166, 42, 42, 0.3);
-    transition: 0.3s;
-    display: block;
+width: 90%;
+padding: 16px;
+margin: 10px auto;
+border: none;
+border-radius: 12px;
+background: var(--metallic-gold);
+color: black;
+font-weight: bold;
+display: block;
 }
-
 .festive-pay-btn:hover { transform: translateY(-2px); }
 
 .summary-box-final {
@@ -514,12 +585,12 @@
     100% { transform: scale(1); }
 }
 
-        /* --- 7. SUMMARY SCREEN STYLING --- */
-        #summary-screen { display: none; min-height: 100vh; background-color: var(--bg); padding-top: 20px; }
-        .summary-container { max-width: 700px; margin: 20px auto; background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+/* --- 7. SUMMARY SCREEN STYLING --- */
+ #summary-screen { display: none; min-height: 100vh; background-color: var(--bg); padding-top: 20px; }
+        .summary-container { max-width: 700px; margin: 20px auto; background-color: black; padding: 20px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
         .summary-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
         .summary-table th, .summary-table td { padding: 10px; border-bottom: 1px solid #eee; text-align: left; }
-        .summary-table th { background-color: var(--christmas-green); color: white; text-transform: uppercase; font-size: 0.85rem; }
+        .summary-table th { background-color: var(--christmas-green); color: black; text-transform: uppercase; font-size: 0.85rem; }
         
         /* New Alignment for QTY column */
         .summary-table th:nth-child(3), .summary-table td:nth-child(3) { text-align: center; }
@@ -547,16 +618,16 @@
         .confirm-choice-modal { text-align: center; }
         .choice-btn { display: block; width: 100%; padding: 15px; margin-bottom: 10px; border-radius: 8px; border: none; font-size: 1.1rem; font-weight: bold; cursor: pointer; }
         #btn-sms { background-color: var(--place-order-blue); color: white; }
-        #btn-whatsapp { background-color: #25D366; color: white; }
+        #btn-whatsapp { background-color: #25D366; color: white; }   
 
-        /* --- THANK YOU SCREEN --- */
-        #thank-you-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--bg); color: var(--text); display: none; flex-direction: column; justify-content: center; align-items: center; z-index: 1002; padding: 20px; }
+/* --- THANK YOU SCREEN --- */    
+ #thank-you-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--bg); color: var(--text); display: none; flex-direction: column; justify-content: center; align-items: center; z-index: 1002; padding: 20px; }
         .success-box { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); max-width: 400px; width: 90%; }
         .home-btn { background: var(--place-order-blue); color: white; padding: 12px 25px; border-radius: 5px; text-decoration: none; display: inline-block; margin-top: 15px; }
         footer { background-color: var(--christmas-green); color: white; padding: 20px 0; margin-top: 30px; }
         footer a { color: var(--christmas-gold); text-decoration: none; }
 
-	/* ===== FIX SUMMARY SCROLL (MOBILE) ===== */
+/* ===== FIX SUMMARY SCROLL (MOBILE) ===== */
 
 #summary-screen {
   display: none;
@@ -598,20 +669,30 @@
   gap: 10px;
   box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
 }
-	
+#fireworks {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    background: transparent;
+}
+
     </style>
 </head>
 <body>
 
 
     <div class="snow-container"></div>
+	<canvas id="fireworks"></canvas>
     
     <div id="welcome-screen">
         <h2>🎄 Welcome to Baga Foods LTD <br> Annapoorani Snacks & Sweets 🎁</h2>
         <div class="welcome-content">
             <p style="font-size: 1.2rem;">Get ready for the festive season with our finest snacks!</p>
             <form id="welcome-form" class="welcome-form">
-                <input type="text" id="customer-name" placeholder="Your Full Name" required>
+                <input type="text" id="customer-name" placeholder="Enter Your Name" required>
                 <div class="phone-input-group">
                     <span class="country-code">+260</span>
                     <input type="tel" id="customer-phone" class="phone-number" placeholder="Mobile Number (e.g., 979xxxxxx)" pattern="[0-9]{9}" required>
@@ -630,12 +711,12 @@
                 </div>
                 <div class="header-title-container">
                     <h1>Annapoorani Snacks & Sweets</h1>
-                    <p style="margin: 0; font-size: 0.9em;">Wishing you a Merry Christmas & Happy New Year!</p>
+                    <p style="margin: 0; font-size: 0.9em;">Wishing you a Happy New Year!</p>
                 </div>
                 <div class="contact-santa-container">
                     <div class="header-contact"><a href="tel:+260979117700">+260 979 117 700</a></div>
                     <div class="header-whatsapp-group"><a href="https://chat.whatsapp.com/J2fY3cRMrl622VubWCkq9g" target="_blank">Join WhatsApp Group</a></div>
-                    <div class="santa-container">🎅</div>
+                    <div class="santa-container">🎉</div>
                 </div>
             </header>
             <div class="navbar" id="navbar">
@@ -660,7 +741,7 @@
             </div>
         </div>
             <footer>
-    <h4>🎄 Contact & Location 🎅</h4>
+    <h4>🎆 Contact & Location 🎆</h4>
     <p>Ready to Order? Send us a text!</p>
     <p>Order SMS/WhatsApp: <a href="tel:+260979117700">+260 979 117 700</a></p>
     <p>Location: <strong>Plot number 8229, Chinyunyu Rd, Lusaka, Zambia</strong></p>
@@ -671,7 +752,10 @@
 
     <div id="order-modal" class="modal">
         <div class="modal-content">
-            <h3 id="modal-item-name">Item Name</h3>
+		<div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px; border-bottom: 1px solid rgba(251, 191, 36, 0.3); padding-bottom: 10px;">
+        <img id="modal-item-image" src="" alt="Item" style="width: 60px; height: 60px; border-radius: 8px; border: 1px solid #fbbf24; object-fit: cover;">
+        <h2 id="modal-item-name" style="margin: 0; color: #fbbf24;">Item Name</h2>
+    </div>
             <hr style="border-top: 1px solid #eee; margin: 15px 0;">
             <p style="font-weight: bold;">Quantity:</p>
             <input type="number" id="quantity-input" min="1" value="1" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
@@ -684,7 +768,7 @@
     
 	<div id="payment-modal" class="modal">
     <div class="modal-content">
-        <div class="payment-header">🎄 Festive Checkout  🎄 </div>
+        <div class="payment-header">🎉 Festive Checkout  🎉 </div>
         <div style="padding: 10px 0 20px 0;">
             <div id="fee-summary-box" class="summary-box-final">
                 </div>
@@ -694,7 +778,7 @@
                 <small style="display:block; font-size:0.7rem; font-weight:normal;">(pay via Airtel Money)</small>
             </button>
 
-            <button class="festive-pay-btn" style="background: var(--christmas-green);" onclick="handleCheckoutChoice('collect-pay')">
+            <button class="festive-pay-btn" style="background: var(--metallic-gold);" onclick="handleCheckoutChoice('collect-pay')">
                 🚚 Collect & Pay
                 <small style="display:block; font-size:0.7rem; font-weight:normal;">(Collect order & Pay)</small>
             </button>
@@ -706,7 +790,7 @@
 
 <div id="confirm-choice-modal" class="modal">
     <div class="modal-content confirm-choice-modal" style="text-align:center;">
-        <h3 style="color: var(--christmas-green);">Ready to Send! 🎁</h3>
+        <h3 style="color: #fbbf24;">Ready to Send! 🎁</h3>
         <p>we are processing your order.Kindly Click below to send the details via WhatsApp or SMS:</p>
         <button id="btn-whatsapp" class="choice-btn" onclick="sendViaWhatsApp()">🟢 Send via WhatsApp</button>
         <button id="btn-sms" class="choice-btn" onclick="sendViaSMS()">✉️ Send via SMS Text</button>
@@ -719,7 +803,7 @@
 	<div id="summary-screen">
   <div class="summary-container">
     <h2 class="category-title" style="border: none; margin-bottom: 10px;">🛒 Your Order</h2>
-    <p style="margin-bottom: 20px; font-size: 0.9rem;">
+    <p style="margin-bottom: 20px;color:var(--christmas-green); font-size: 0.9rem;">
       Review your items for <b><span id="summary-customer-name"></span></b>
     </p>
 
@@ -748,7 +832,7 @@
             <h2>Order Generated!</h2>
             <p>Thank you, <span id="thank-you-name">Customer</span>!</p>
             <div style="background:#ffc93c; padding:15px; border-radius:8px; margin:20px 0; font-weight:bold;">
-                Press SEND in your messaging app to finalize your purchase.
+                Press Send in your messaging app to finalize your purchase.
             </div>
             <a href="#" onclick="location.reload()" class="home-btn">Start New Order</a>
         </div>
@@ -857,6 +941,8 @@
         function openModal(item) {
             currentSelection = item;
             document.getElementById('modal-item-name').innerText = item.name;
+	    document.getElementById('modal-item-image').src = item.image;
+	
             document.getElementById('quantity-input').value = 1;
             document.getElementById('order-modal').style.display = 'flex';
         }
@@ -952,10 +1038,10 @@ function openConfirmChoiceModal() {
     const fee = getAirtelFee(baseTotal);
     
     document.getElementById('fee-summary-box').innerHTML = `
-        <p style="margin:5px 0;">Items Total: <span style="float:right;">K${baseTotal.toFixed(2)}</span></p>
+        <p style="margin:5px 0;color:var(--christmas-red);">Items Total: <span style="float:right;">K${baseTotal.toFixed(2)}</span></p>
         <p style="margin:5px 0; color:var(--christmas-red);">Withdrawal Fee: <span style="float:right;">+ K${fee.toFixed(2)}</span></p>
         <hr style="border-top:1px solid #ddd;">
-        <p style="margin:5px 0; font-size:1.1rem;"><b>Grand Total: <span style="float:right;">K${(baseTotal + fee).toFixed(2)}</span></b></p>
+        <p style="margin:5px 0;color:var(--christmas-red);font-size:1.1rem;"><b>Grand Total: <span style="float:right;">K${(baseTotal + fee).toFixed(2)}</span></b></p>
     `;
     
     document.getElementById('payment-modal').style.display = 'flex';
@@ -1042,7 +1128,7 @@ ${itemsList}
 
 ────────────────────
 ${feeText}💳 Payment Method: ${selectedMethod}
-💰 *GRAND TOTAL: ZMW ${finalBillTotal.toFixed(2)}*
+💸 *GRAND TOTAL: ZMW ${finalBillTotal.toFixed(2)}*
 
 📍 *Collection:* In-store pickup
 🙏 Thank you for your order! We appreciate your support!`;
@@ -1103,6 +1189,133 @@ function stopBell() {
     bell.pause();
     bell.currentTime = 0;
 }
+</script>
+<script>
+const canvas = document.getElementById("fireworks");
+const ctx = canvas.getContext("2d");
+
+let W, H;
+function resize() {
+    W = canvas.width = window.innerWidth * devicePixelRatio;
+    H = canvas.height = window.innerHeight * devicePixelRatio;
+    canvas.style.width = window.innerWidth + "px";
+    canvas.style.height = window.innerHeight + "px";
+    ctx.scale(devicePixelRatio, devicePixelRatio);
+}
+resize();
+window.addEventListener("resize", resize);
+
+const GRAVITY = 0.06;
+const FRICTION = 0.98;
+
+class Rocket {
+    constructor() {
+        this.x = Math.random() * W;
+        this.y = H;
+        this.vx = (Math.random() - 0.5) * 1.5;
+        this.vy = -(Math.random() * 4 + 7);
+        this.explodesAt = Math.random() * H * 0.4 + H * 0.15;
+        this.trail = [];
+        this.color = `hsl(${Math.random() * 360},100%,70%)`;
+    }
+
+    update() {
+        this.trail.push({ x: this.x, y: this.y });
+        if (this.trail.length > 8) this.trail.shift();
+
+        this.x += this.vx;
+        this.y += this.vy;
+        this.vy += GRAVITY * 0.4;
+
+        if (this.y <= this.explodesAt) {
+            explode(this.x, this.y, this.color);
+            return false;
+        }
+        return true;
+    }
+
+    draw() {
+        ctx.beginPath();
+        ctx.moveTo(this.trail[0]?.x || this.x, this.trail[0]?.y || this.y);
+        this.trail.forEach(p => ctx.lineTo(p.x, p.y));
+        ctx.strokeStyle = this.color;
+        ctx.lineWidth = 2;
+        ctx.stroke();
+    }
+}
+
+class Particle {
+    constructor(x, y, color) {
+        this.x = x;
+        this.y = y;
+        const angle = Math.random() * Math.PI * 2;
+        const speed = Math.random() * 6 + 2;
+        this.vx = Math.cos(angle) * speed;
+        this.vy = Math.sin(angle) * speed;
+        this.alpha = 1;
+        this.color = color;
+        this.size = Math.random() * 2 + 1;
+    }
+
+    update() {
+        this.vx *= FRICTION;
+        this.vy *= FRICTION;
+        this.vy += GRAVITY;
+        this.x += this.vx;
+        this.y += this.vy;
+        this.alpha -= 0.015;
+        return this.alpha > 0;
+    }
+
+    draw() {
+        ctx.globalAlpha = this.alpha;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.shadowBlur = 20;
+        ctx.shadowColor = this.color;
+        ctx.fill();
+        ctx.globalAlpha = 1;
+    }
+}
+
+let rockets = [];
+let particles = [];
+
+function explode(x, y, color) {
+    const count = Math.random() * 80 + 80;
+    for (let i = 0; i < count; i++) {
+        particles.push(new Particle(x, y, color));
+    }
+}
+
+function animate() {
+    ctx.clearRect(0, 0, W, H);
+
+    rockets = rockets.filter(r => r.update());
+    rockets.forEach(r => r.draw());
+
+    particles = particles.filter(p => {
+        p.draw();
+        return p.update();
+    });
+
+    requestAnimationFrame(animate);
+}
+animate();
+
+/* AUTO FIREWORKS (WELCOME BLAST) */
+let launches = 0;
+const autoShow = setInterval(() => {
+    rockets.push(new Rocket());
+    launches++;
+    if (launches > 10) clearInterval(autoShow);
+}, 500);
+
+/* CLICK / TAP FIREWORKS */
+window.addEventListener("click", e => {
+    explode(e.clientX, e.clientY, `hsl(${Math.random()*360},100%,70%)`);
+});
 </script>
 </body>
 </html>
