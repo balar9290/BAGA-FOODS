@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🌟 Annapoorani Snacks - Happy New Year 2026! 🎁</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>🌟 Annapoorani Snacks - Happy New Year 2026! 🎁</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Merriweather:wght@400;700&family=Agbalumo&display=swap" rel="stylesheet">
   <title>Baga Foods Ltd - Quality Snacks and Sweets</title>
@@ -199,7 +199,14 @@ header h1 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin: 0;    
-}    
+}  
+.container {
+    max-width: 500px; /* Forces a consistent "phone-sized" width even on tablets */
+    margin: 0 auto;   /* Centers the website */
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+  
 
 .logo-container img { width: 80px; height: auto; border-radius: 50%; border: 3px solid var(--christmas-gold); }    
 
@@ -229,7 +236,16 @@ header h1 {
     border: 2px solid var(--christmas-gold); border-radius: 8px; padding: 5px;     
     background-color: #0f172a; display: flex; flex-direction: column; justify-content: space-between; height: 100%;     
 }    
-.card-img-container { height: 120px; overflow: contain; }    
+ .card-img-container {
+    height: 150px; /* Fixed height for all phones */
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+}
+ 
 .card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease-in-out; }    
 
 .btn-order { 
@@ -608,7 +624,7 @@ display: block;
             header { flex-direction: column; padding: 8px 10px; }
             .logo-container img { width: 55px; }
             header h1 { font-size: 1.6rem; }
-            .menu-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+            .menu-grid { grid-template-columns: 1fr 1fr; gap: 10px;padding:10px }
             .card-ingredients { display: none; }
             #welcome-screen h2 { font-size: 2rem; }
             .summary-actions { flex-direction: column-reverse; }
