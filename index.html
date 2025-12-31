@@ -1131,7 +1131,7 @@ function openConfirmChoiceModal() {
     // Create items list with numbering and subtotal
     let itemsList = cart.map((i, index) => {
         const sub = (i.price * i.quantity).toFixed(2);
-        return `🛍️ ${index + 1}. ${i.name} x${i.quantity} (${i.weight}) @ZMW${i.price} = ZMW${sub}`;
+        return `${index + 1}. ${i.name} x${i.quantity} (${i.weight}) @ZMW${i.price} = ZMW${sub}`;
     }).join('\n');
 
     // Calculate any extra fee for Airtel Money
