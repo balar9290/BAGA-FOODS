@@ -713,11 +713,7 @@ display: block;
             <p style="font-size: 1.2rem;">Get ready for the festive season with our finest snacks!</p>
             <form id="welcome-form" class="welcome-form">
                 <input type="text" id="customer-name" placeholder="Enter Your Name" required>
-                <div class="phone-input-group">
-                    <span class="country-code">+260</span>
-                    <input type="tel" id="customer-phone" class="phone-number" placeholder="Mobile Number (e.g., 979xxxxxx)" pattern="[0-9]{9}" required>
-                </div>
-                <button type="button" id="enter-button">Enter Festive Menu</button>
+                 <button type="button" id="enter-button">Enter Festive Menu</button>
             </form>
         </div>
     </div>
@@ -777,7 +773,7 @@ display: block;
         <h2 id="modal-item-name" style="margin: 0; color: #fbbf24;">Item Name</h2>
     </div>
             <hr style="border-top: 1px solid #eee; margin: 15px 0;">
-            <p style="font-weight: bold;">Quantity:</p>
+            <p style="font-weight: bold;">Quantity:(<span id="modal-item-weight"></span>)</p>
             <input type="number" id="quantity-input" min="1" value="1" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
             <div class="modal-actions">
                 <button class="btn-cancel" onclick="closeModal('order-modal')">Cancel</button>
@@ -915,9 +911,7 @@ display: block;
         document.getElementById('welcome-form').addEventListener('submit', function(e) {
             e.preventDefault();
             customerName = document.getElementById('customer-name').value.trim();
-            const phone = document.getElementById('customer-phone').value.trim();
-            if (customerName && phone.length >= 9) {
-                customerFullPhone = '+260' + phone; 
+            if (customerName) {
                 document.getElementById('welcome-screen').style.opacity = '0';
                 setTimeout(() => {
                     document.getElementById('welcome-screen').style.display = 'none';
@@ -960,13 +954,22 @@ display: block;
         }
 
         function openModal(item) {
-            currentSelection = item;
-            document.getElementById('modal-item-name').innerText = item.name;
-	    document.getElementById('modal-item-image').src = item.image;
-	
-            document.getElementById('quantity-input').value = 1;
-            document.getElementById('order-modal').style.display = 'flex';
-        }
+    currentSelection = item;
+    
+    // Determine the correct unit label (grams or pieces)
+    const unit = item.quantity_g ? `${item.quantity_g}g` : `${item.quantity_pcs} Pcs`;
+    
+    // Fill the modal data
+    document.getElementById('modal-item-name').innerText = item.name;
+    document.getElementById('modal-item-image').src = item.image;
+    
+    // INSERT THE UNIT HERE
+    document.getElementById('modal-item-weight').innerText = unit; 
+    
+    document.getElementById('quantity-input').value = 1;
+    document.getElementById('order-modal').style.display = 'flex';
+}
+
 
         function closeModal(id) { document.getElementById(id).style.display = 'none'; 
 document.getElementById('confirm-choice-modal').style.display = 'none'; }
@@ -1103,7 +1106,7 @@ function openConfirmChoiceModal() {
         // Fallback after 2 seconds
         setTimeout(() => {
             const elapsed = Date.now() - startTime;
-            if (elapsed < 2500) {
+            if (elapsed < 500) {
                 alert(
                     `Kindly Follow the following instructions:\n` +
                     `1. Open Airtel Money manually.\n` +
@@ -1114,7 +1117,7 @@ function openConfirmChoiceModal() {
 
             // Show confirmation modal
             document.getElementById('confirm-choice-modal').style.display = 'flex';
-        },5000)
+        },1500)
 
     } else {
         finalBillTotal = baseTotal;
@@ -1142,7 +1145,6 @@ function openConfirmChoiceModal() {
 
 📋 *CUSTOMER DETAILS*
 👤 Name: ${customerName}
-📞 Phone: ${customerFullPhone}
 
 🍽️ *ITEMS ORDERED*
 ${itemsList}
